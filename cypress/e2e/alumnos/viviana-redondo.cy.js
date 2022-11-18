@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 describe("Primer desafio", () => {
     it("Deberia registrar, loguear y eliminar al usuario", () => {
-      const username = "Viviana";
   
       cy.request({
         url: "http://pushing-it-backend.herokuapp.com/api/register",
