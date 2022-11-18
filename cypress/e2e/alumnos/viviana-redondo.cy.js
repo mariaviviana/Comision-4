@@ -1,14 +1,12 @@
 /// <reference types="cypress" />
 describe("Primer desafio", () => {
     it("Deberia registrar, loguear y eliminar al usuario", () => {
-      const numero = Math.floor(Math.random() * 1000);
-      const username = `Viviana${numero}`;
   
       cy.request({
         url: "http://pushing-it-backend.herokuapp.com/api/register",
         method: "POST",
         body: {
-          username,
+          username:"Viviana",
           password: "123456!",
           gender: "Female",
           day: "13",
@@ -23,7 +21,7 @@ describe("Primer desafio", () => {
           url: "http://pushing-it-backend.herokuapp.com/api/login",
           method: "POST",
           body: {
-            username,
+            username:"Viviana",
             password: "123456!",
           },
         })
@@ -32,12 +30,12 @@ describe("Primer desafio", () => {
           })
       }).then(() => {
           cy.request({
-            url: `https://pushing-it-backend.herokuapp.com/api/deleteuser/${username}`,
+            url: `https://pushing-it-backend.herokuapp.com/api/deleteuser/${"Viviana"}`,
             method: "DELETE",
           }).then((respuesta) => {
             expect(respuesta.status).equal(200);
           });
-        });
+        })
     });
   });
   
